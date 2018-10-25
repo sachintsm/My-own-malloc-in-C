@@ -16,7 +16,7 @@ struct block *freeblock = (void*)heap;
 /*this functions define, we use them in mymalloc.c file*/
 
 void initialized();
-void split(struct block *slot, size_t size);
+void split(struct splitblock *slot, size_t size);
 void mymalloc(size_t mem_size);  
 void connect();  //merge two memory blocks
-void freeblock(void *ptr);  //this function use to free the memory block
+void myfree(void *ptr);  //this function use to free the memory block
