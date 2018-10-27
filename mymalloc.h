@@ -1,8 +1,8 @@
 #include<stdio.h>
-#include<stdbool.h>
 #include<stddef.h>
+# define max 25000
 
-char heap[25000];
+char Heap[max];
 
 typedef struct block
 {
@@ -11,12 +11,14 @@ typedef struct block
 	struct block *next;  //point to next meta data
 }block;
 
-struct block *freeblock = (void*)heap;
+struct block *freeblock = (void*)Heap;
 
 /*this functions define, we use them in mymalloc.c file*/
 
 void initialized();
-void split(struct splitblock *slot, size_t size);
-void mymalloc(size_t mem_size);  
+void split(block *slot, size_t size);
+void *mymalloc(size_t mem_size);  // memory allocating  fuction 
 void connect();  //merge two memory blocks
 void myfree(void *ptr);  //this function use to free the memory block
+
+
