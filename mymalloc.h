@@ -22,4 +22,3 @@ void initialized(); //initializing the memory block
   void combine();  //merge two memory blocks
    void my_free(void *ptr);  //this function use to free the memory block
     void *my_malloc(size_t mem_size);  // memory allocating fuction 
-

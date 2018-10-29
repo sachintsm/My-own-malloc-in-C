@@ -64,23 +64,23 @@ void *my_malloc(size_t mem_size){
 		previous = current;  //set current memory block to previous block
 		 current = current->next; //currunt -> next set to current mem bock
 		  printf("This is checked\n");  
-	
+	}
 		if((current->size) == mem_size){  //check the current memory block size equal  to given mem size
 			current->free = 0; //set current mem block full
-			 start_address = (void*)(++current);  //set starting address to new new allocated memory block beginning address
+			 start_address = (void*)(current++);  //set starting address to new new allocated memory block beginning address
 			  printf("Block is now allocated\n"); 
 			   return start_address;  
 		}
-		else if((current->size) > (mem_size + sizeof(struct block))){
+		else if((current->size) > (mem_size + sizeof(block))){
 			split(current,mem_size);
-			 start_address = (void*)(++current);
+			 start_address = (void*)(current++);
 			  printf("Block is allocated and splited`\n");
 			   return start_address;
 		}
 		else{
 			start_address = NULL;  //if there is no memmory to allocate then set starting address to NULL address
 			 printf("Sorry. No memory to allocate.\n");
-		}
+		
 	}
 }
 
